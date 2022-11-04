@@ -1,0 +1,14 @@
+{
+    "name": "Great Grand Father",
+    "isFolder": true,
+    "family":[
+        {
+            "name": "Son 1",
+            "isFolder": true
+        },
+        {
+            "name": "Daughter 1",
+            "isFolder": true
+        }
+    ]
+}
