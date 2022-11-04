@@ -6,5 +6,4 @@ function handleAxios(url,method,data){
     return axios[method.toLowerCase()]
     (`${baseURL}${url}`,data);
 }
-
 export default handleAxios;
