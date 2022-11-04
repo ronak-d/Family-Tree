@@ -1,14 +1,26 @@
 {
-    "name": "Great Grand Father",
-    "isFolder": true,
-    "family":[
+    "Family":[
         {
-            "name": "Son 1",
-            "isFolder": true
-        },
-        {
-            "name": "Daughter 1",
-            "isFolder": true
+            "FamilyHead": "Great Grand Father",
+            "isFolder": true,
+            "familyMember":[
+                {
+                    "name": "Son 1",
+                    "spouse": "Heena",
+                    "Location":"Bhopal",
+                    "Birth Year":1980,
+                    "Address":"Hiran magri Bhopal",
+                    "isFolder": true
+                },
+                {
+                    "name": "Daughter 1",
+                    "spouse": "Roy",
+                    "Location":"Bhopal",
+                    "Birth Year":1980,
+                    "Address":"Hiran magri Bhopal",
+                    "isFolder": true
+                }
+            ]
         }
     ]
 }

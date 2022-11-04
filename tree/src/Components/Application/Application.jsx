@@ -1,8 +1,12 @@
 import React from 'react'
+import styles from '../CSS/Application.module.css'
 
 const Application = () => {
   return (
-    <div>Application</div>
+    // body
+    <div> 
+      Application
+    </div>
   )
 }
 
