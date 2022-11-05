@@ -6,8 +6,7 @@ import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import handleAxios from '../HandleAxios/HandleAxios';
-
-
+import TextField from "@mui/material/TextField";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -42,7 +41,7 @@ const Application = () => {
       Family Tree
     </Typography>
     
-  <Box sx={{ width: "100%",display:"flex",border: "2px solid red" }}>
+  <Box sx={{ width: "100%",display:"flex",border: "14px solid black" }}>
     
     <Box sx={{ width: "40%",border: "2px solid red" }}>
       <Stack
@@ -57,17 +56,45 @@ const Application = () => {
       </Stack>
     </Box>
 
-    <Box sx={{ width: "60%",border: "2px solid red" }}>
-      <Stack
-        direction="column"
-        justifyContent="center"
-        alignItems="stretch"
-        spacing={2}
+    <Box component="form"
+      noValidate
+      autoComplete="on"
+      display="inline-block" 
+      sx={{ width: "60%","& > :not(style)": { m: 3, width: "40ch" },border: "2px solid red" }}
       >
-        <Item>Item 1</Item>
-        <Item>Item 2</Item>
-        <Item>Item 3</Item>
-      </Stack>
+      <TextField
+        id="outlined-name"
+        label="Name"
+        // value={name}
+        // onChange={handleChange}
+      />
+      <TextField
+        id="outlined-name"
+        label="spouse"
+        // value={spouse}
+        // onChange={handleChange}
+      />
+      <TextField
+        id="outlined-name"
+        label="Location"
+        // value={Location}
+        // onChange={handleChange}
+      />
+      <TextField
+        id="outlined-name"
+        label="Birth Year"
+        // value={BirthYear}
+        // onChange={handleChange}
+      />
+      <TextField
+        id="outlined-name"
+        label="Address"
+        // value={Address}
+        // onChange={handleChange}
+      />
+
+
+
     </Box>
 
   </Box>
