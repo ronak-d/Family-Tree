@@ -22,6 +22,29 @@ const Application = () => {
   const [data,setData] = useState(null);
   const [loadings,setLoadings] = useState(true);
 
+  const [memDetails,setMemDetails] = useState({
+    fullName: "",
+    spouse:"",
+    location:"",
+    birthYear:"",
+    address:"",
+  });
+
+  function handleDetails(e) {
+    const eventName = e.target.name;
+    const val = e.target.value;
+    
+    console.log(eventName,val);
+    const newObj = {...memDetails}
+    newObj[eventName] = val;
+    setMemDetails((prev)=> newObj)
+  }
+  console.log(memDetails)
+  const onSubmits = (event) => {
+    event.preventDefault();
+    alert("Form saved successfully");
+  }
+
   useEffect(() =>{
     handleAxios("Family","get",data)
     .then((res)=>{
@@ -58,45 +81,49 @@ const Application = () => {
 
     <Box component="form"
       noValidate
-      autoComplete="on"
+      autoComplete="off"
       display="inline-block" 
       sx={{ width: "60%","& > :not(style)": { m: 3, width: "40ch" },border: "2px solid red" }}
+      onSubmit={onSubmits}
       >
       <TextField
         id="outlined-name"
         label="Name"
-        // value={name}
-        // onChange={handleChange}
+        name="fullName"
+        onChange={handleDetails}
+        value={memDetails.fullName}
+        
       />
       <TextField
         id="outlined-name"
-        label="spouse"
-        // value={spouse}
-        // onChange={handleChange}
+        label="Spouse"
+        name="spouse"
+        value={memDetails.spouse}
+        onChange={handleDetails}
       />
       <TextField
         id="outlined-name"
         label="Location"
-        // value={Location}
-        // onChange={handleChange}
+        name="location"
+        value={memDetails.location}
+        onChange={handleDetails}
       />
       <TextField
         id="outlined-name"
         label="Birth Year"
-        // value={BirthYear}
-        // onChange={handleChange}
+        name="birthYear"
+        value={memDetails.birthYear}
+        onChange={handleDetails}
       />
       <TextField
         id="outlined-name"
         label="Address"
-        // value={Address}
-        // onChange={handleChange}
+        name="address"
+        value={memDetails.address}
+        onChange={handleDetails}
       />
-
-
-
+      <button type="submit">Save</button>
     </Box>
-
   </Box>
 </>
   )
