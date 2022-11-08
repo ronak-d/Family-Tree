@@ -1,7 +1,7 @@
 import handleAxios from "../HandleAxios/HandleAxios";
 
 function AddMemberData(memberData){
-    handleAxios("details","post",memberData)
+    handleAxios("Family/familyMember","patch",memberData)
     .then((res)=>{
         console.log(res);
     })

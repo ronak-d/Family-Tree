@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import handleAxios from '../HandleAxios/HandleAxios';
 import TextField from "@mui/material/TextField";
+import Button from '@mui/material/Button';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -34,12 +35,12 @@ const Application = () => {
     const eventName = e.target.name;
     const val = e.target.value;
     
-    console.log(eventName,val);
+    // console.log(eventName,val);
     const newObj = {...memDetails}
     newObj[eventName] = val;
     setMemDetails((prev)=> newObj)
   }
-  console.log(memDetails)
+  // console.log(memDetails)
   const onSubmits = (event) => {
     event.preventDefault();
     alert("Form saved successfully");
@@ -49,14 +50,16 @@ const Application = () => {
     handleAxios("Family","get",data)
     .then((res)=>{
       setLoadings(false);
-      console.log(res.data);
-      console.log(res.data[0].familyMember[0].name);
+      // console.log(res.data[0].FamilyHead);
+      // console.log(res.data[0].familyMember);
+      setData(res.data[0].familyMember);
     })
     .catch((err)=>{
       console.log(err);
       setLoadings(false);
     });
   },[])
+  console.log(data);
 
   return (
 <>
@@ -64,9 +67,11 @@ const Application = () => {
       Family Tree
     </Typography>
     
-  <Box sx={{ width: "100%",display:"flex",border: "14px solid black" }}>
-    
-    <Box sx={{ width: "40%",border: "2px solid red" }}>
+  <Box sx={{ width: "50%",display:"flex",border: "4px solid black",margin:"auto" }}>
+    <Box sx={{ width: "40%",border: "4px solid black" }}>
+      {/* <h4 style="border:4px solid black">
+        Family Tree
+      </h4> */}
       <Stack
         direction="column"
         justifyContent="center"
@@ -75,17 +80,26 @@ const Application = () => {
       >
         <Item>Item 1</Item>
         <Item>Item 2</Item>
-        <Item>Item 3</Item>
+        <Button variant="contained" size="medium">
+          Add Family Member
+        </Button> 
+        <Button variant="contained" size="medium">
+          Print Family Tree
+        </Button> 
       </Stack>
     </Box>
 
+    {/* form to add family member details */}
     <Box component="form"
       noValidate
       autoComplete="off"
       display="inline-block" 
-      sx={{ width: "60%","& > :not(style)": { m: 3, width: "40ch" },border: "2px solid red" }}
+      sx={{ width: "60%","& > :not(style)": { m: 3, width: "40ch" } }}
       onSubmit={onSubmits}
       >
+      <h4>
+        Family Details
+      </h4>
       <TextField
         id="outlined-name"
         label="Name"
@@ -122,7 +136,7 @@ const Application = () => {
         value={memDetails.address}
         onChange={handleDetails}
       />
-      <button type="submit">Save</button>
+      {/* <button type="submit">Save</button> */}
     </Box>
   </Box>
 </>
