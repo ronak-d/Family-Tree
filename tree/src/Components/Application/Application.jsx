@@ -59,27 +59,31 @@ const Application = () => {
       setLoadings(false);
     });
   },[])
-  console.log(data);
+
 
   return (
 <>
-    <Typography variant="h6" component="h2" textAlign={"center"}>
+    {/* <Typography variant="h6" component="h2" textAlign={"center"}>
+      Family Tree
+    </Typography> */}
+    
+  <Box sx={{ width: "50%",display:"flex",border: "2px solid black",margin:"auto" }}>
+    <Box sx={{ width: "40%",borderRight:" 4mm ridge rgba(211, 220, 50, .6)",padding: "0px 15px" }}>
+
+    <Typography variant="h6" component="h6" textAlign={"center"}>
       Family Tree
     </Typography>
-    
-  <Box sx={{ width: "50%",display:"flex",border: "4px solid black",margin:"auto" }}>
-    <Box sx={{ width: "40%",border: "4px solid black" }}>
-      {/* <h4 style="border:4px solid black">
-        Family Tree
-      </h4> */}
+
       <Stack
         direction="column"
         justifyContent="center"
         alignItems="stretch"
         spacing={2}
       >
-        <Item>Item 1</Item>
-        <Item>Item 2</Item>
+        {data.map((e)=>(
+        // <Item>{e.name}</Item>
+        <Button variant="outlined" size="medium">{e.name}</Button> 
+        ))}
         <Button variant="contained" size="medium">
           Add Family Member
         </Button> 
@@ -94,12 +98,14 @@ const Application = () => {
       noValidate
       autoComplete="off"
       display="inline-block" 
-      sx={{ width: "60%","& > :not(style)": { m: 3, width: "40ch" } }}
+      sx={{ width: "60%","& > :not(style)": { m: 3, width: "35ch" } }}
       onSubmit={onSubmits}
       >
-      <h4>
+
+      <Typography variant="h6" component="h6" textAlign={"center"}>
         Family Details
-      </h4>
+      </Typography>
+
       <TextField
         id="outlined-name"
         label="Name"
