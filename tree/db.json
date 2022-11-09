@@ -19,6 +19,16 @@
       "address": "Hiran magri Bhopal",
       "isFolder": true,
       "familyMember": []
+    },
+    {
+      "fullName": "ronak",
+      "spouse": "nun",
+      "location": "123",
+      "birthYear": "2001",
+      "address": "hiranmagri",
+      "id": "w_xAI",
+      "isFolder": true,
+      "familyMember": []
     }
   ]
 }

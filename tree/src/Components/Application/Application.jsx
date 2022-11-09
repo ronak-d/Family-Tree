@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import Button from '@mui/material/Button';
 import { nanoid } from 'nanoid'
 import AddMemberData from '../AddMember/AddMemberData';
+import axios from 'axios';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -36,6 +37,7 @@ const Application = () => {
     "isFolder": true,
     familyMember:[]
   });
+  console.log("memDetails",memDetails);
 
   function handleDetails(e) {
     const eventName = e.target.name;
@@ -52,20 +54,6 @@ const Application = () => {
     alert("Form saved successfully");
   }
 
-  // useEffect(() =>{
-  //   handleAxios("Family","get",data)
-  //   .then((res)=>{
-  //     setLoadings(false);
-  //     // console.log(res.data[0].FamilyHead);
-  //     console.log(res.data[0].familyMember);
-  //     setData(res.data[0].familyMember);
-  //   })
-  //   .catch((err)=>{
-  //     console.log(err);
-  //     setLoadings(false);
-  //   });
-  // },[])
-
   useEffect(() =>{
     handleAxios("family","get",data)
     .then((res)=>{
@@ -81,7 +69,10 @@ const Application = () => {
   
   console.log("data",data);
 
-  AddMemberData(memDetails)
+
+  // making an post api inside selected familymember
+  // AddMemberData(memDetails)
+  // imported as js pure function.
 
 
   return (
