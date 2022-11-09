@@ -1,50 +1,24 @@
 {
-    "Family":[
-        {
-            "FamilyHead": "Great Grand Father",
-            "isFolder": true,
-            "familyMember":[
-                {   
-                    "id": 1,
-                    "name": "Son 1",
-                    "spouse": "Heena",
-                    "Location":"Bhopal",
-                    "Birth Year":1980,
-                    "Address":"Hiran magri Bhopal",
-                    "isFolder": true,
-                    "familyMember":[
-                        {   
-                            "id": 11,
-                            "name": "Son 1",
-                            "spouse": "Heena",
-                            "Location":"Bhopal",
-                            "Birth Year":1980,
-                            "Address":"Hiran magri Bhopal",
-                            "isFolder": true
-                        }
-                    ]
-                },
-                {
-                    "id":2,
-                    "name": "Daughter 1",
-                    "spouse": "Roy",
-                    "Location":"Bhopal",
-                    "Birth Year":1980,
-                    "Address":"Hiran magri Bhopal",
-                    "isFolder": true,
-                    "familyMember":[
-                        {   
-                            "id": 21,
-                            "name": "Daughter of daughter 1",
-                            "spouse": "Heena",
-                            "Location":"Bhopal",
-                            "Birth Year":1980,
-                            "Address":"Hiran magri Bhopal",
-                            "isFolder": true
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+  "family": [
+    {
+      "id": 1,
+      "fullName": "Son 1",
+      "spouse": "Heena",
+      "location": "Bhopal",
+      "birthYear": 1980,
+      "address": "Hiran magri Bhopal",
+      "isFolder": true,
+      "familyMember": []
+    },
+    {
+      "id": 2,
+      "fullName": "Daughter 1",
+      "spouse": "Roy",
+      "location": "Bhopal",
+      "birthYear": 1980,
+      "address": "Hiran magri Bhopal",
+      "isFolder": true,
+      "familyMember": []
+    }
+  ]
 }

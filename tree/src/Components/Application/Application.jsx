@@ -9,6 +9,7 @@ import handleAxios from '../HandleAxios/HandleAxios';
 import TextField from "@mui/material/TextField";
 import Button from '@mui/material/Button';
 import { nanoid } from 'nanoid'
+import AddMemberData from '../AddMember/AddMemberData';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -32,6 +33,7 @@ const Application = () => {
     birthYear:"",
     address:"",
     id:nanoid(5),
+    "isFolder": true,
     familyMember:[]
   });
 
@@ -79,7 +81,7 @@ const Application = () => {
   
   console.log("data",data);
 
-  AddMemberData()
+  AddMemberData(memDetails)
 
 
   return (
