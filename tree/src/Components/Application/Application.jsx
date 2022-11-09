@@ -8,6 +8,8 @@ import { Typography } from '@mui/material';
 import handleAxios from '../HandleAxios/HandleAxios';
 import TextField from "@mui/material/TextField";
 import Button from '@mui/material/Button';
+import { nanoid } from 'nanoid'
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -29,6 +31,7 @@ const Application = () => {
     location:"",
     birthYear:"",
     address:"",
+    id:nanoid(5)
   });
 
   function handleDetails(e) {
