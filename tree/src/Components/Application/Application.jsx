@@ -67,7 +67,8 @@ const Application = () => {
       Family Tree
     </Typography> */}
     
-  <Box sx={{ width: "50%",display:"flex",border: "3px solid black",margin:"auto" }}>
+<Box sx={{ width: "100%",display:"flex",padding:"3% 0px" }}>
+  <Box sx={{ width: "50%",display:"flex",border: "3px solid black",margin:"auto",padding:"1%" }}>
     <Box sx={{ width: "40%",borderRight:" 4mm ridge rgba(211, 220, 50, .6)",padding: "0px 15px" }}>
 
     <Typography sx={{m:2}}variant="overline" component="h6" align={"center"}>
@@ -80,9 +81,9 @@ const Application = () => {
         alignItems="stretch"
         spacing={2}
       >
-        {data.map((e)=>(
+        {/* {data.map((e)=>(
         <Button  variant="outlined" size="medium">{e.name}</Button> 
-        ))}
+        ))} */}
         <Button variant="contained" size="medium">
           Add Family Member
         </Button> 
@@ -144,6 +145,7 @@ const Application = () => {
       {/* <button type="submit">Save</button> */}
     </Box>
   </Box>
+</Box>
 </>
   )
 }
