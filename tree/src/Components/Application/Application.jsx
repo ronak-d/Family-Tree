@@ -31,7 +31,8 @@ const Application = () => {
     location:"",
     birthYear:"",
     address:"",
-    id:nanoid(5)
+    id:nanoid(5),
+    familyMember:[]
   });
 
   function handleDetails(e) {
@@ -43,40 +44,55 @@ const Application = () => {
     newObj[eventName] = val;
     setMemDetails((prev)=> newObj)
   }
-  // console.log(memDetails)
+
   const onSubmits = (event) => {
     event.preventDefault();
     alert("Form saved successfully");
   }
 
+  // useEffect(() =>{
+  //   handleAxios("Family","get",data)
+  //   .then((res)=>{
+  //     setLoadings(false);
+  //     // console.log(res.data[0].FamilyHead);
+  //     console.log(res.data[0].familyMember);
+  //     setData(res.data[0].familyMember);
+  //   })
+  //   .catch((err)=>{
+  //     console.log(err);
+  //     setLoadings(false);
+  //   });
+  // },[])
+
   useEffect(() =>{
-    handleAxios("Family","get",data)
+    handleAxios("family","get",data)
     .then((res)=>{
       setLoadings(false);
-      // console.log(res.data[0].FamilyHead);
-      // console.log(res.data[0].familyMember);
-      setData(res.data[0].familyMember);
+      setData(res.data);
+      // console.log(res.data);
     })
     .catch((err)=>{
       console.log(err);
       setLoadings(false);
     });
   },[])
+  
+  console.log("data",data);
+
+  AddMemberData()
 
 
   return (
 <>
-    {/* <Typography variant="h6" component="h2" textAlign={"center"}>
-      Family Tree
-    </Typography> */}
     
 <Box sx={{ width: "100%",display:"flex",padding:"3% 0px" }}>
   <Box sx={{ width: "50%",display:"flex",border: "3px solid black",margin:"auto",padding:"1%" }}>
-    <Box sx={{ width: "40%",borderRight:" 4mm ridge rgba(211, 220, 50, .6)",padding: "0px 15px" }}>
+    <Box sx={{ width: "40%",borderRight:" 4mm ridge rgba(211, 220, 50, .6)",padding: "0px 15px"}}>
 
     <Typography sx={{m:2}}variant="overline" component="h6" align={"center"}>
       Family Tree
     </Typography>
+
 
       <Stack
         direction="column"
@@ -84,9 +100,12 @@ const Application = () => {
         alignItems="stretch"
         spacing={2}
       >
+
+        {/*Main family Members  */}
         {/* {data.map((e)=>(
-        <Button  variant="outlined" size="medium">{e.name}</Button> 
+        <Button  variant="outlined" size="medium">{e.fullName}</Button> 
         ))} */}
+
         <Button variant="contained" size="medium">
           Add Family Member
         </Button> 
